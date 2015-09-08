@@ -17,7 +17,6 @@
             android:background="@android:color/transparent"
             android:gravity="top"
             android:hint="填写标签内容(8字以内), 使用回车或逗号分隔"
-            android:lineSpacingExtra="@dimen/line_spacing_extra"
             android:minHeight="150dp"
             android:textColorHint="@color/content_text"
             android:textSize="14dp" />

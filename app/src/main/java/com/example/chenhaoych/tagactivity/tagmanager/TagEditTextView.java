@@ -32,6 +32,11 @@ import android.widget.Toast;
 
 import com.example.chenhaoych.tagactivity.R;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  * Created by chenhao.ych on 2015/7/8.
  */
@@ -105,11 +110,34 @@ public class TagEditTextView extends MultiAutoCompleteTextView implements
 
     private TagEditChip getLastChip() {
         TagEditChip last = null;
-        TagEditChip[] chips = getSpannable().getSpans(0, getText().length(), TagEditChip.class);
+        TagEditChip[] chips = getSortedRecipients();
         if (chips != null && chips.length > 0) {
             last = chips[chips.length - 1];
         }
         return last;
+    }
+
+    private TagEditChip[] getSortedRecipients() {
+        TagEditChip[] recips = getSpannable()
+                .getSpans(0, getText().length(), TagEditChip.class);
+        ArrayList<TagEditChip> recipientsList = new ArrayList<TagEditChip>(Arrays
+                .asList(recips));
+        final Spannable spannable = getSpannable();
+        Collections.sort(recipientsList, new Comparator<TagEditChip>() {
+            @Override
+            public int compare(TagEditChip first, TagEditChip second) {
+                int firstStart = spannable.getSpanStart(first);
+                int secondStart = spannable.getSpanStart(second);
+                if (firstStart < secondStart) {
+                    return -1;
+                } else if (firstStart > secondStart) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+        return recipientsList.toArray(new TagEditChip[recipientsList.size()]);
     }
 
     @Override
@@ -662,7 +690,7 @@ public class TagEditTextView extends MultiAutoCompleteTextView implements
     }
 
     public String getChipsString() {
-        TagEditChip[] recips = getSpannable().getSpans(0, getText().length(), TagEditChip.class);
+        TagEditChip[] recips = getSortedRecipients();
         ;
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < recips.length; i++) {
