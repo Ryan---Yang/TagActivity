@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="done">确定</string>
+    <string name="tag_same">标签已存在</string>
+    <string name="tag_max">超过个数限制</string>
+</resources>

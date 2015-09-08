@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <color name="grid_add_btn">#dddddd</color>
+    <color name="content_text">#999999</color>
+    <color name="title">#333333</color>
+    <color name="tag_text">#333333</color>
+</resources>

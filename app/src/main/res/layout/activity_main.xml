@@ -1,0 +1,39 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <com.example.chenhaoych.tagactivity.tagmanager.TagsEditor
+            android:id="@+id/tag_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@android:color/transparent"
+            android:gravity="top"
+            android:hint="填写标签内容(8字以内), 使用回车或逗号分隔"
+            android:lineSpacingExtra="@dimen/line_spacing_extra"
+            android:minHeight="150dp"
+            android:textColorHint="@color/content_text"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dddddd" />
+
+        <com.example.chenhaoych.tagactivity.view.AutoWrapLineLayout
+            android:id="@+id/usual_tags_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>
